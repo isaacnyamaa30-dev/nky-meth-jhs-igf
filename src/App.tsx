@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppShell } from '@/components/layout/AppShell'
 import { LoginPage } from '@/features/auth/LoginPage'
+import { ResetPasswordPage } from '@/features/auth/ResetPasswordPage'
 import { ProtectedRoute } from '@/features/auth/ProtectedRoute'
 import { PageLoader } from '@/components/ui/spinner'
 
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
 
       <Route element={<ProtectedRoute />}>
         <Route element={<AppShell />}>
