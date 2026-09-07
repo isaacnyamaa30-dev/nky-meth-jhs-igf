@@ -53,7 +53,7 @@ export function UniformItemFormDialog({ open, onOpenChange }: { open: boolean; o
           <Input id="item_name" placeholder="e.g. School Shirt" {...register('item_name')} />
           {errors.item_name && <p className="mt-1 text-xs text-danger">{errors.item_name.message}</p>}
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="gender_category">Category</Label>
             <Select id="gender_category" {...register('gender_category')}>
@@ -67,7 +67,7 @@ export function UniformItemFormDialog({ open, onOpenChange }: { open: boolean; o
             <Input id="size" placeholder="e.g. Medium" {...register('size')} />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div>
             <Label htmlFor="unit_price">Unit price (GH₵)</Label>
             <Input id="unit_price" type="number" step="0.01" min="0.01" {...register('unit_price')} />

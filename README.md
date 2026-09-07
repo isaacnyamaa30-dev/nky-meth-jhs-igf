@@ -12,6 +12,8 @@ you see always trace back to an individual, attributable collection:
 
 **Who collected the money? What was it for? How much? Was it handed over and reconciled?**
 
+Developed by **Saris IT Solutions** ([isaacnyamaa30@gmail.com](mailto:isaacnyamaa30@gmail.com), +233 24 374 4689).
+
 ## Tech stack
 
 - **Frontend:** React + TypeScript + Vite, Tailwind CSS v4, React Router, TanStack Query
@@ -190,3 +192,9 @@ sensitive table). TypeScript types mirroring the schema live in
 No accounts are seeded automatically (see step 7) — this is deliberate so
 no default password ever ships in source control. Create your own via the
 Supabase dashboard as described above.
+
+## Copyright
+
+© 2026 Nyankyerenease Methodist JHS. All rights reserved.
+
+Developed by **Saris IT Solutions** — [isaacnyamaa30@gmail.com](mailto:isaacnyamaa30@gmail.com) · +233 24 374 4689.

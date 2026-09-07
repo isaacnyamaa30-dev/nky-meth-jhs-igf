@@ -65,7 +65,7 @@ export function CollectionTypeFormDialog({ open, onOpenChange }: { open: boolean
           <Label htmlFor="ct-description">Description</Label>
           <Textarea id="ct-description" rows={2} {...register('description')} />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="ct-frequency">Frequency</Label>
             <Select id="ct-frequency" {...register('frequency')}>

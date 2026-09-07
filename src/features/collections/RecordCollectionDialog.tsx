@@ -130,7 +130,7 @@ export function RecordCollectionDialog({ open, onOpenChange }: { open: boolean; 
   return (
     <Dialog open={open} onOpenChange={onOpenChange} title="Record Collection">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="transaction_date">Date</Label>
             <Input id="transaction_date" type="date" {...register('transaction_date')} />
@@ -151,7 +151,7 @@ export function RecordCollectionDialog({ open, onOpenChange }: { open: boolean; 
         </div>
 
         {selectedType?.class_specific !== false && (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
               <Label htmlFor="class_id">Class</Label>
               <Select id="class_id" {...register('class_id')}>
@@ -179,7 +179,7 @@ export function RecordCollectionDialog({ open, onOpenChange }: { open: boolean; 
           </div>
         )}
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="amount">Amount (GH₵)</Label>
             <Input id="amount" type="number" step="0.01" min="0.01" {...register('amount')} />
@@ -193,7 +193,7 @@ export function RecordCollectionDialog({ open, onOpenChange }: { open: boolean; 
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="payment_method">Payment method</Label>
             <Select id="payment_method" {...register('payment_method')}>

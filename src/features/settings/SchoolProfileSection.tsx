@@ -55,7 +55,7 @@ export function SchoolProfileSection() {
           <PageLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div>
                 <Label htmlFor="school_name">School name</Label>
                 <Input id="school_name" {...register('school_name')} />
@@ -69,7 +69,7 @@ export function SchoolProfileSection() {
               <Label htmlFor="address">Address</Label>
               <Input id="address" {...register('address')} />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div>
                 <Label htmlFor="phone">Phone</Label>
                 <Input id="phone" {...register('phone')} />

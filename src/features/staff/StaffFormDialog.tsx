@@ -125,7 +125,7 @@ export function StaffFormDialog({
           {errors.full_name && <p className="mt-1 text-xs text-danger">{errors.full_name.message}</p>}
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="gender">Gender</Label>
             <Select id="gender" {...register('gender')}>
@@ -142,7 +142,7 @@ export function StaffFormDialog({
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="phone_number">Phone number</Label>
             <Input id="phone_number" placeholder="0244123456" {...register('phone_number')} />
@@ -160,7 +160,7 @@ export function StaffFormDialog({
           <Input id="job_title" placeholder="e.g. Class Teacher" {...register('job_title')} />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="user_role">System role</Label>
             <Select id="user_role" {...register('user_role')}>

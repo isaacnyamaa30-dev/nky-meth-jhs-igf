@@ -55,7 +55,7 @@ export function ConfirmReceiptDialog({
     >
       {handover && (
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
             <div>
               <p className="text-muted">Calculated (system)</p>
               <p className="font-medium text-foreground">{formatGHS(handover.calculated_collection_amount)}</p>

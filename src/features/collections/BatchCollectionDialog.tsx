@@ -129,7 +129,7 @@ export function BatchCollectionDialog({ open, onOpenChange }: { open: boolean; o
       className="max-w-2xl"
     >
       <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="batch-class">Class</Label>
             <Select id="batch-class" value={classId} onChange={(e) => setClassId(e.target.value)}>
@@ -156,7 +156,7 @@ export function BatchCollectionDialog({ open, onOpenChange }: { open: boolean; o
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div>
             <Label htmlFor="batch-date">Date</Label>
             <Input id="batch-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
@@ -209,13 +209,13 @@ export function BatchCollectionDialog({ open, onOpenChange }: { open: boolean; o
           <p className="text-sm text-muted">Select a class to list its students.</p>
         )}
 
-        <div className="flex items-center justify-between border-t border-border pt-3">
+        <div className="flex flex-col gap-3 border-t border-border pt-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm font-medium text-foreground">Total: {formatGHS(total)}</p>
           <div className="flex gap-2">
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)} className="flex-1 sm:flex-none">
               Cancel
             </Button>
-            <Button type="button" onClick={handleSubmit} disabled={submitting}>
+            <Button type="button" onClick={handleSubmit} disabled={submitting} className="flex-1 sm:flex-none">
               {submitting ? 'Saving…' : `Save Batch (${selectedCount})`}
             </Button>
           </div>

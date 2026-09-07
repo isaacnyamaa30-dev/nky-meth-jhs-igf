@@ -49,7 +49,7 @@ export function AcademicYearFormDialog({ open, onOpenChange }: { open: boolean; 
           <Input id="name" placeholder="2026/2027" {...register('name')} />
           {errors.name && <p className="mt-1 text-xs text-danger">{errors.name.message}</p>}
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="start_date">Start date</Label>
             <Input id="start_date" type="date" {...register('start_date')} />

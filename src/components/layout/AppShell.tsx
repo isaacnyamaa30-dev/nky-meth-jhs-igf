@@ -4,6 +4,7 @@ import { Menu, X, LogOut, WifiOff } from 'lucide-react'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { useOnlineStatus } from '@/hooks/useOnlineStatus'
 import { NAV_ITEMS } from './nav-items'
+import { Footer } from './Footer'
 import { cn } from '@/lib/utils'
 
 function SidebarLinks({ onNavigate }: { onNavigate?: () => void }) {
@@ -40,9 +41,12 @@ export function AppShell() {
     <div className="flex min-h-screen bg-background">
       {/* Desktop sidebar */}
       <aside className="hidden w-64 flex-col bg-brand-950 py-6 text-white lg:flex">
-        <div className="mb-6 px-4">
-          <p className="text-sm font-semibold leading-tight">NKY. METH. JHS</p>
-          <p className="text-xs text-brand-100/80">IGF Tracker</p>
+        <div className="mb-6 flex items-center gap-3 px-4">
+          <img src="/logo.png" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" />
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold leading-tight">NKY. METH. JHS</p>
+            <p className="text-xs text-brand-100/80">IGF Tracker</p>
+          </div>
         </div>
         <SidebarLinks />
       </aside>
@@ -53,9 +57,12 @@ export function AppShell() {
           <div className="absolute inset-0 bg-black/40" onClick={() => setDrawerOpen(false)} />
           <aside className="absolute inset-y-0 left-0 flex w-72 flex-col bg-brand-950 py-6 text-white">
             <div className="mb-6 flex items-center justify-between px-4">
-              <div>
-                <p className="text-sm font-semibold leading-tight">NKY. METH. JHS</p>
-                <p className="text-xs text-brand-100/80">IGF Tracker</p>
+              <div className="flex min-w-0 items-center gap-3">
+                <img src="/logo.png" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold leading-tight">NKY. METH. JHS</p>
+                  <p className="text-xs text-brand-100/80">IGF Tracker</p>
+                </div>
               </div>
               <button
                 aria-label="Close menu"
@@ -78,24 +85,27 @@ export function AppShell() {
           </div>
         )}
 
-        <header className="flex h-16 items-center justify-between border-b border-border bg-surface px-4 lg:px-6">
-          <button
-            aria-label="Open menu"
-            onClick={() => setDrawerOpen(true)}
-            className="rounded-md p-2 hover:bg-brand-50 lg:hidden"
-          >
-            <Menu size={22} />
-          </button>
-          <div className="hidden text-sm text-muted lg:block">Nyankyerenease Methodist JHS</div>
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <p className="text-sm font-medium text-foreground">{profile?.full_name ?? 'Loading…'}</p>
-              <p className="text-xs capitalize text-muted">{staff?.job_title ?? profile?.role}</p>
+        <header className="flex h-16 items-center justify-between gap-2 border-b border-border bg-surface px-3 sm:px-4 lg:px-6">
+          <div className="flex min-w-0 items-center gap-2">
+            <button
+              aria-label="Open menu"
+              onClick={() => setDrawerOpen(true)}
+              className="shrink-0 rounded-md p-2 hover:bg-brand-50 lg:hidden"
+            >
+              <Menu size={22} />
+            </button>
+            <img src="/logo.png" alt="" className="h-8 w-8 shrink-0 rounded-full object-cover lg:hidden" />
+            <span className="hidden truncate text-sm text-muted lg:block">Nyankyerenease Methodist JHS</span>
+          </div>
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="min-w-0 text-right">
+              <p className="truncate text-sm font-medium text-foreground">{profile?.full_name ?? 'Loading…'}</p>
+              <p className="truncate text-xs capitalize text-muted">{staff?.job_title ?? profile?.role}</p>
             </div>
             <button
               onClick={() => void signOut()}
               aria-label="Sign out"
-              className="rounded-full p-2 text-muted hover:bg-brand-50 hover:text-brand-800"
+              className="shrink-0 rounded-full p-2 text-muted hover:bg-brand-50 hover:text-brand-800"
             >
               <LogOut size={18} />
             </button>
@@ -105,6 +115,8 @@ export function AppShell() {
         <main className="flex-1 p-4 lg:p-6">
           <Outlet />
         </main>
+
+        <Footer />
       </div>
     </div>
   )

@@ -95,7 +95,7 @@ export function UniformSaleFormDialog({ open, onOpenChange }: { open: boolean; o
   return (
     <Dialog open={open} onOpenChange={onOpenChange} title="Record Uniform Sale">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="sale_date">Date</Label>
             <Input id="sale_date" type="date" {...register('sale_date')} />
@@ -127,7 +127,7 @@ export function UniformSaleFormDialog({ open, onOpenChange }: { open: boolean; o
           </Select>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="quantity">Quantity</Label>
             <Input id="quantity" type="number" min="1" step="1" {...register('quantity')} />
@@ -143,7 +143,7 @@ export function UniformSaleFormDialog({ open, onOpenChange }: { open: boolean; o
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="payment_status">Payment status</Label>
             <Select id="payment_status" {...register('payment_status')}>

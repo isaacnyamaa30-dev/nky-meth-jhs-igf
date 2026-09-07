@@ -5,6 +5,7 @@ import { useAuth } from './AuthProvider'
 import { Button } from '@/components/ui/button'
 import { Input, Label } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
+import { Footer } from '@/components/layout/Footer'
 
 export function LoginPage() {
   const { user, loading } = useAuth()
@@ -48,12 +49,15 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen flex-col bg-background">
+      <div className="flex flex-1 items-center justify-center px-4 py-8">
       <div className="w-full max-w-sm">
         <div className="mb-6 text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-900 text-xl font-bold text-white">
-            IGF
-          </div>
+          <img
+            src="/logo.png"
+            alt="Nyankyerenease Methodist JHS crest"
+            className="mx-auto mb-3 h-16 w-16 rounded-full object-cover shadow-sm"
+          />
           <h1 className="text-lg font-semibold text-foreground">NKY. METH. JHS IGF Tracker</h1>
           <p className="mt-1 text-sm text-muted">Nyankyerenease Methodist JHS — Internally Generated Funds</p>
         </div>
@@ -113,6 +117,8 @@ export function LoginPage() {
           Having trouble signing in? Contact your school administrator.
         </p>
       </div>
+      </div>
+      <Footer />
     </div>
   )
 }

@@ -63,7 +63,7 @@ export function TermFormDialog({ open, onOpenChange }: { open: boolean; onOpenCh
           {errors.academic_year_id && <p className="mt-1 text-xs text-danger">{errors.academic_year_id.message}</p>}
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="term_name">Term</Label>
             <Select id="term_name" {...register('term_name')}>

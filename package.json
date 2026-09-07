@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Saris IT Solutions",
+    "email": "isaacnyamaa30@gmail.com",
+    "phone": "+233243744689"
+  },
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

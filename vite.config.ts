@@ -17,7 +17,7 @@ export default defineConfig({
         short_name: 'NKY IGF',
         description:
           'Nyankyerenease Methodist JHS Internally Generated Funds Tracker',
-        theme_color: '#0f5132',
+        theme_color: '#16203f',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: '/',
