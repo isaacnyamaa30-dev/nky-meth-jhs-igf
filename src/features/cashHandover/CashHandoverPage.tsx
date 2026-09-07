@@ -46,7 +46,7 @@ export function CashHandoverPage() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-semibold text-foreground">Cash Handover</h1>
+        <h1 className="text-xl font-semibold text-gradient-navy">Cash Handover</h1>
         <Button onClick={() => setSubmitOpen(true)}>
           <Plus size={16} /> Submit Handover
         </Button>

@@ -80,7 +80,7 @@ export function DashboardPage() {
     <div className="space-y-6">
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
         <div>
-          <h1 className="text-xl font-semibold text-foreground">Dashboard</h1>
+          <h1 className="text-xl font-semibold text-gradient-navy">Dashboard</h1>
           <p className="text-sm text-muted">
             {context.term.term_name} — {context.term.number_of_weeks} weeks
             {context.week ? ` · Week ${context.week.week_number} of ${context.term.number_of_weeks}` : ''}

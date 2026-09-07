@@ -27,7 +27,7 @@ export function AuditLogsPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-xl font-semibold text-foreground">Audit Logs</h1>
+      <h1 className="text-xl font-semibold text-gradient-navy">Audit Logs</h1>
 
       <Card className="flex flex-col gap-3 p-3 sm:flex-row">
         <Select value={entityType} onChange={(e) => setEntityType(e.target.value)} className="sm:w-56">

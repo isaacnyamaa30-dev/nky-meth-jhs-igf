@@ -38,7 +38,7 @@ export function ClassesPage() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-semibold text-foreground">Classes</h1>
+        <h1 className="text-xl font-semibold text-gradient-navy">Classes</h1>
         {canManage && (
           <Button
             onClick={() => {

@@ -56,7 +56,7 @@ export function TermsPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-semibold text-foreground">Terms</h1>
+      <h1 className="text-xl font-semibold text-gradient-navy">Terms</h1>
 
       <Card>
         <CardHeader>

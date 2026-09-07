@@ -82,4 +82,14 @@
     background-color: var(--color-border);
     border-radius: 9999px;
   }
+
+  /* Navy gradient text for headings on light backgrounds. Not used on the
+     login page's hero title - that text sits on the matching navy gradient
+     background, so a navy gradient fill there would be unreadable. */
+  .text-gradient-navy {
+    background-image: linear-gradient(to right, var(--color-brand-950), var(--color-brand-600));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }

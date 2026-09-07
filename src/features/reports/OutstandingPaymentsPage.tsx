@@ -44,7 +44,7 @@ export function OutstandingPaymentsPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-xl font-semibold text-foreground">Outstanding Payments</h1>
+      <h1 className="text-xl font-semibold text-gradient-navy">Outstanding Payments</h1>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         <StatCard label="Total Outstanding" value={formatGHS(totalOutstanding)} accent="gold" />

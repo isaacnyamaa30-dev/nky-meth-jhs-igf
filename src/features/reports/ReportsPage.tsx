@@ -22,7 +22,7 @@ export function ReportsPage() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-semibold text-foreground">Reports</h1>
+        <h1 className="text-xl font-semibold text-gradient-navy">Reports</h1>
         <Button variant="outline" onClick={() => window.print()}>
           <Printer size={16} /> Print
         </Button>

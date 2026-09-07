@@ -67,7 +67,7 @@ export function CollectionsPage() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-semibold text-foreground">Collections</h1>
+        <h1 className="text-xl font-semibold text-gradient-navy">Collections</h1>
         <div className="flex flex-wrap gap-2">
           {isAdmin && (
             <Button variant="outline" onClick={() => setTypeFormOpen(true)}>

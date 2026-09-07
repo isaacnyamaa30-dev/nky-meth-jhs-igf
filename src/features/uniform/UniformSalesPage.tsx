@@ -34,7 +34,7 @@ export function UniformSalesPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-semibold text-foreground">Uniform Sales</h1>
+        <h1 className="text-xl font-semibold text-gradient-navy">Uniform Sales</h1>
         <div className="flex flex-wrap gap-2">
           {isAdmin && (
             <Button variant="outline" onClick={() => setItemFormOpen(true)}>
