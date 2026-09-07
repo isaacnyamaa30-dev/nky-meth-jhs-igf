@@ -79,11 +79,14 @@ export function ResetPasswordPage() {
       <div className="flex flex-1 items-center justify-center px-4 py-10">
         <div className="w-full max-w-sm">
           <div className="mb-6 text-center">
-            <img
-              src="/logo.png"
-              alt="Nyankyerenease Methodist JHS crest"
-              className="mx-auto mb-3 h-20 w-20 rounded-full object-cover shadow-lg ring-4 ring-gold-400/70"
-            />
+            <div className="mb-3 flex items-center justify-center gap-4">
+              <img
+                src="/logo.png"
+                alt="Nyankyerenease Methodist JHS crest"
+                className="h-20 w-20 rounded-full object-cover shadow-lg ring-4 ring-gold-400/70"
+              />
+              <img src="/shield.png" alt="School emblem" className="h-20 w-auto drop-shadow-lg" />
+            </div>
             <h1 className="text-xl font-semibold text-white">Reset Your Password</h1>
             <p className="mt-1 text-sm text-brand-100/80">NKY. METH. JHS IGF Tracker</p>
           </div>
