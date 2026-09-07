@@ -49,74 +49,74 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <div className="flex flex-1 items-center justify-center px-4 py-8">
-      <div className="w-full max-w-sm">
-        <div className="mb-6 text-center">
-          <img
-            src="/logo.png"
-            alt="Nyankyerenease Methodist JHS crest"
-            className="mx-auto mb-3 h-16 w-16 rounded-full object-cover shadow-sm"
-          />
-          <h1 className="text-lg font-semibold text-foreground">NKY. METH. JHS IGF Tracker</h1>
-          <p className="mt-1 text-sm text-muted">Nyankyerenease Methodist JHS — Internally Generated Funds</p>
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-brand-950 via-brand-900 to-brand-700">
+      <div className="flex flex-1 items-center justify-center px-4 py-10">
+        <div className="w-full max-w-sm">
+          <div className="mb-6 text-center">
+            <img
+              src="/logo.png"
+              alt="Nyankyerenease Methodist JHS crest"
+              className="mx-auto mb-3 h-20 w-20 rounded-full object-cover shadow-lg ring-4 ring-gold-400/70"
+            />
+            <h1 className="text-xl font-semibold text-white">NKY. METH. JHS IGF Tracker</h1>
+            <p className="mt-1 text-sm text-brand-100/80">Nyankyerenease Methodist JHS — Internally Generated Funds</p>
+          </div>
+
+          <Card className="border-t-4 border-t-gold-400 p-6 shadow-xl">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  autoComplete="username"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@nkymethjhs.edu.gh"
+                />
+              </div>
+              <div>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              {error && (
+                <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-danger">
+                  {error}
+                </p>
+              )}
+              {resetSent && (
+                <p role="status" className="rounded-lg bg-brand-50 px-3 py-2 text-sm text-brand-800">
+                  A password reset link has been sent to your email.
+                </p>
+              )}
+
+              <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+                {submitting ? 'Signing in…' : 'Sign in'}
+              </Button>
+
+              <button
+                type="button"
+                onClick={handleResetPassword}
+                className="w-full text-center text-sm text-brand-700 hover:underline"
+              >
+                Forgot password?
+              </button>
+            </form>
+          </Card>
+
+          <p className="mt-6 text-center text-xs text-brand-100/70">
+            Having trouble signing in? Contact your school administrator.
+          </p>
         </div>
-
-        <Card className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                autoComplete="username"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@nkymethjhs.edu.gh"
-              />
-            </div>
-            <div>
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            {error && (
-              <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-danger">
-                {error}
-              </p>
-            )}
-            {resetSent && (
-              <p role="status" className="rounded-lg bg-brand-50 px-3 py-2 text-sm text-brand-800">
-                A password reset link has been sent to your email.
-              </p>
-            )}
-
-            <Button type="submit" size="lg" className="w-full" disabled={submitting}>
-              {submitting ? 'Signing in…' : 'Sign in'}
-            </Button>
-
-            <button
-              type="button"
-              onClick={handleResetPassword}
-              className="w-full text-center text-sm text-brand-700 hover:underline"
-            >
-              Forgot password?
-            </button>
-          </form>
-        </Card>
-
-        <p className="mt-6 text-center text-xs text-muted">
-          Having trouble signing in? Contact your school administrator.
-        </p>
-      </div>
       </div>
       <Footer />
     </div>
