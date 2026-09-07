@@ -64,7 +64,7 @@ export function LoginPage() {
             <p className="mt-1 text-sm text-brand-100/80">Nyankyerenease Methodist JHS — Internally Generated Funds</p>
           </div>
 
-          <Card className="border-t-4 border-t-gold-400 p-6 shadow-xl">
+          <Card className="border-t-4 border-t-gold-400 bg-gold-100 p-6 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="email">Email</Label>
@@ -76,6 +76,7 @@ export function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@nkymethjhs.edu.gh"
+                  className="border-gold-300 bg-gold-50"
                 />
               </div>
               <div>
@@ -88,7 +89,7 @@ export function LoginPage() {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pr-10"
+                    className="border-gold-300 bg-gold-50 pr-10"
                   />
                   <button
                     type="button"
