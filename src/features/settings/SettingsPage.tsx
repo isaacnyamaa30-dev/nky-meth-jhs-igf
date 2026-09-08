@@ -2,6 +2,7 @@ import { SchoolProfileSection } from './SchoolProfileSection'
 import { CollectionAmountsSection } from './CollectionAmountsSection'
 import { UniformPricesSection } from './UniformPricesSection'
 import { InventorySettingsSection } from './InventorySettingsSection'
+import { DangerZoneSection } from './DangerZoneSection'
 
 export function SettingsPage() {
   return (
@@ -11,6 +12,7 @@ export function SettingsPage() {
       <CollectionAmountsSection />
       <UniformPricesSection />
       <InventorySettingsSection />
+      <DangerZoneSection />
     </div>
   )
 }

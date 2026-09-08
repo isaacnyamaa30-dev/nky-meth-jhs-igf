@@ -26,3 +26,10 @@ export async function updateSetting(key: string, value: Record<string, unknown>,
     .eq('key', key)
   if (error) throw error
 }
+
+/** Wipes sample transactions/handovers/receipts/audit history. Never
+ * touches staff, students, classes or any other school structure. */
+export async function clearSampleData() {
+  const { error } = await supabase.rpc('fn_clear_sample_data')
+  if (error) throw error
+}

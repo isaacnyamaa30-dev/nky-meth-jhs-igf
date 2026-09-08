@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { Plus, Search } from 'lucide-react'
+import { Plus, Search, UserPlus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
@@ -12,12 +12,14 @@ import { useToast, friendlyError } from '@/components/ui/toast'
 import { listStaff, sendPasswordReset, setStaffStatus, type StaffWithClass } from '@/services/staff'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { StaffFormDialog } from './StaffFormDialog'
+import { InviteStaffDialog } from './InviteStaffDialog'
 
 export function StaffPage() {
   const { role } = useAuth()
   const canManage = role === 'admin'
   const [search, setSearch] = React.useState('')
   const [formOpen, setFormOpen] = React.useState(false)
+  const [inviteOpen, setInviteOpen] = React.useState(false)
   const [editing, setEditing] = React.useState<StaffWithClass | null>(null)
   const [statusTarget, setStatusTarget] = React.useState<StaffWithClass | null>(null)
 
@@ -67,14 +69,19 @@ export function StaffPage() {
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <h1 className="text-xl font-semibold text-gradient-navy">Staff</h1>
         {canManage && (
-          <Button
-            onClick={() => {
-              setEditing(null)
-              setFormOpen(true)
-            }}
-          >
-            <Plus size={16} /> Add Staff
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={() => setInviteOpen(true)}>
+              <UserPlus size={16} /> Invite Staff / Admin
+            </Button>
+            <Button
+              onClick={() => {
+                setEditing(null)
+                setFormOpen(true)
+              }}
+            >
+              <Plus size={16} /> Add Staff
+            </Button>
+          </div>
         )}
       </div>
 
@@ -151,6 +158,7 @@ export function StaffPage() {
       )}
 
       <StaffFormDialog open={formOpen} onOpenChange={setFormOpen} staff={editing} />
+      {canManage && <InviteStaffDialog open={inviteOpen} onOpenChange={setInviteOpen} />}
 
       <ConfirmDialog
         open={!!statusTarget}

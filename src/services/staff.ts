@@ -78,6 +78,43 @@ export async function setStaffStatus(id: string, status: StaffStatus) {
   if (error) throw error
 }
 
+export interface InviteStaffInput {
+  full_name: string
+  email: string
+  user_role: UserRole
+  job_title?: string
+}
+
+export interface InviteStaffResult {
+  success?: boolean
+  error?: string
+  staff_number?: string
+}
+
+/**
+ * Creates a real login account for a new staff member via the invite-staff
+ * Edge Function - the service_role key it needs stays server-side and is
+ * never present in this frontend bundle.
+ */
+export async function inviteStaff(input: InviteStaffInput): Promise<InviteStaffResult> {
+  const { data, error } = await supabase.functions.invoke('invite-staff', { body: input })
+  if (error) {
+    // Supabase's FunctionsHttpError wraps the response; try to surface the
+    // function's own JSON error message rather than a generic network error.
+    const context = (error as { context?: Response }).context
+    if (context) {
+      try {
+        const body = await context.json()
+        return { error: body.error ?? error.message }
+      } catch {
+        // fall through to generic message below
+      }
+    }
+    return { error: error.message }
+  }
+  return data as InviteStaffResult
+}
+
 export async function sendPasswordReset(email: string) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${window.location.origin}/login`,
