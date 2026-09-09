@@ -32,3 +32,4 @@ supabase/.temp
 
 # Raw source photos used to extract the logo/brand colors - not app source.
 /Logo image/
+/ScreenShotError/

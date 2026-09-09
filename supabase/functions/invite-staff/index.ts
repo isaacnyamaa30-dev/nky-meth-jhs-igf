@@ -12,6 +12,11 @@
 // invites the email via Supabase Auth (sends them a "set your password"
 // email using the same /reset-password page already built for password
 // recovery) -> links the new auth account to the staff record.
+//
+// Note: this function has "Verify JWT" turned OFF in its Supabase settings
+// (this project's newer-style API keys don't play well with the platform's
+// automatic gateway check) - the code below does its own JWT verification
+// via callerClient.auth.getUser(), which is what actually matters.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
