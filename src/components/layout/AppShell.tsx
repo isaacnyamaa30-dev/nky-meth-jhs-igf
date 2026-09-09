@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { Menu, X, LogOut, WifiOff, KeyRound } from 'lucide-react'
+import { Menu, X, LogOut, WifiOff, KeyRound, Download } from 'lucide-react'
 import { useAuth } from '@/features/auth/AuthProvider'
 import { useOnlineStatus } from '@/hooks/useOnlineStatus'
+import { useInstallPrompt } from '@/hooks/useInstallPrompt'
 import { ChangePasswordDialog } from '@/features/auth/ChangePasswordDialog'
+import { InstallAppDialog } from './InstallAppDialog'
 import { NAV_ITEMS } from './nav-items'
 import { Footer } from './Footer'
 import { cn } from '@/lib/utils'
@@ -36,8 +38,10 @@ function SidebarLinks({ onNavigate }: { onNavigate?: () => void }) {
 export function AppShell() {
   const { profile, staff, signOut } = useAuth()
   const online = useOnlineStatus()
+  const { installed } = useInstallPrompt()
   const [drawerOpen, setDrawerOpen] = React.useState(false)
   const [changePasswordOpen, setChangePasswordOpen] = React.useState(false)
+  const [installAppOpen, setInstallAppOpen] = React.useState(false)
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -104,6 +108,16 @@ export function AppShell() {
               <p className="truncate text-sm font-medium text-foreground">{profile?.full_name ?? 'Loading…'}</p>
               <p className="truncate text-xs capitalize text-muted">{staff?.job_title ?? profile?.role}</p>
             </div>
+            {!installed && (
+              <button
+                onClick={() => setInstallAppOpen(true)}
+                aria-label="Install app"
+                title="Install app"
+                className="shrink-0 rounded-full p-2 text-muted hover:bg-brand-50 hover:text-brand-800"
+              >
+                <Download size={18} />
+              </button>
+            )}
             <button
               onClick={() => setChangePasswordOpen(true)}
               aria-label="Change password"
@@ -130,6 +144,7 @@ export function AppShell() {
       </div>
 
       <ChangePasswordDialog open={changePasswordOpen} onOpenChange={setChangePasswordOpen} />
+      <InstallAppDialog open={installAppOpen} onOpenChange={setInstallAppOpen} />
     </div>
   )
 }

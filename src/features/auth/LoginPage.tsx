@@ -1,22 +1,26 @@
 import * as React from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff, Download } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from './AuthProvider'
 import { Button } from '@/components/ui/button'
 import { Input, Label } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
 import { Footer } from '@/components/layout/Footer'
+import { InstallAppDialog } from '@/components/layout/InstallAppDialog'
+import { useInstallPrompt } from '@/hooks/useInstallPrompt'
 
 export function LoginPage() {
   const { user, loading } = useAuth()
   const location = useLocation()
+  const { installed } = useInstallPrompt()
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [showPassword, setShowPassword] = React.useState(false)
   const [submitting, setSubmitting] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
   const [resetSent, setResetSent] = React.useState(false)
+  const [installAppOpen, setInstallAppOpen] = React.useState(false)
 
   if (!loading && user) {
     const from = (location.state as { from?: Location })?.from?.pathname ?? '/dashboard'
@@ -130,12 +134,23 @@ export function LoginPage() {
             </form>
           </Card>
 
-          <p className="mt-6 text-center text-xs text-brand-100/70">
+          {!installed && (
+            <button
+              type="button"
+              onClick={() => setInstallAppOpen(true)}
+              className="mx-auto mt-5 flex items-center gap-2 rounded-full border border-gold-400/60 bg-white/5 px-4 py-2 text-sm font-medium text-gold-200 hover:bg-white/10"
+            >
+              <Download size={16} /> Install this app on your device
+            </button>
+          )}
+
+          <p className="mt-4 text-center text-xs text-brand-100/70">
             Having trouble signing in? Contact your school administrator.
           </p>
         </div>
       </div>
       <Footer />
+      <InstallAppDialog open={installAppOpen} onOpenChange={setInstallAppOpen} />
     </div>
   )
 }
